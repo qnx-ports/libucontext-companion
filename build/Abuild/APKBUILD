@@ -2,7 +2,7 @@
 # Maintainer: Felix Xing <fxing@qnx.com>
 pkgname=libucontext
 pkgver=1.3.3
-pkgrel=0
+pkgrel=${pkgrel:-0}
 pkgdesc="ucontext function implementations"
 url="https://github.com/kaniini/libucontext"
 arch="all"
@@ -26,6 +26,7 @@ package() {
     make $_make_config DESTDIR="$pkgdir" install install_docs
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 dbfe17bcd4efacf3cc688fbf96862a104b50fd66ab793644b1608f1abd65e56fab9cb005396e758cb4b9a3838981c6e68a6e04866d016dbb89e987d8e241e0c5  libucontext-1.3.3.tar.xz
 "
